@@ -114,12 +114,12 @@ class VxStreamIntelligence(ThreatIntelligenceModule):
                     return data["response"]
                 else:
                     self.warn(msg + "unexpected JSON response code " +
-                              data["response_code"])
+                              str(data["response_code"]))
             else:
                 self.warn(msg + "unexpected response content type " +
-                          res.headers["Content-Type"])
+                          str(res.headers["Content-Type"]))
         else:
-            msg += "%s (HTTP" + res.status_code + " " + res.reason + ")"
+            msg += "%s (HTTP" + str(res.status_code) + " " + str(res.reason) + ")"
             if res.status_code == HTTP.TooManyRequests:
                 raise ModuleExecutionError(
                     msg % "API key quota has been reached")
