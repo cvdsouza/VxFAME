@@ -506,7 +506,7 @@ class VxStream(ProcessingModule):
                 self.warn(msg + "unexpected response content type " +
                           res.headers["Content-Type"])
         else:
-            msg += "%s (HTTP" + res.status_code + " " + res.reason + ")"
+            msg += "%s (HTTP" + str(res.status_code) + " " + str(res.reason) + ")"
             if res.status_code == HTTP.BadRequest:
                 self.error(msg % "file submission error")
             elif res.status_code == HTTP.TooManyRequests:
